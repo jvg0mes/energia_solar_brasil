@@ -1,0 +1,547 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>O Impacto da Energia Solar na Construção de uma Economia Sustentável</title>
+    <meta name="description"
+        content="O impacto da energia solar na construção de uma economia sustentável no Brasil.">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: #f4f4f4;
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background-color: #2c3e50;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+
+        header h1 {
+            text-align: left;
+            margin: 0;
+            font-size: 36px;
+        }
+
+        section {
+            padding: 20px;
+            margin: 10px;
+            background-color: #d4d4d46b;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        h2 {
+            font-size: 28px;
+            color: #e74c3c;
+            margin-bottom: 15px;
+        }
+
+        .news-container {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            /* gap: 20px; */
+        }
+
+        .news-item {
+            background-color: #ecf0f1;
+            border-radius: 8px;
+            width: 48%;
+            margin: 10px 0;
+            padding: 15px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .news-item img {
+            max-width: 100%;
+            border-radius: 8px;
+            margin-bottom: 10px;
+        }
+
+        .news-item h3 {
+            font-size: 20px;
+            color: #34495e;
+        }
+
+        .cta {
+            background-color: #e74c3c;
+            color: white;
+            padding: 15px;
+            text-align: center;
+            border-radius: 8px;
+            margin-top: 20px;
+            font-size: 20px;
+            cursor: pointer;
+        }
+
+        .cta:hover {
+            background-color: #c0392b;
+        }
+
+        footer {
+            background-color: #2c3e50;
+            color: white;
+            text-align: center;
+            padding: 20px;
+            position: fixed;
+            width: 100%;
+            bottom: 0;
+        }
+
+        footer a {
+            color: #ecf0f1;
+            text-decoration: none;
+        }
+
+        .calculator-container {
+            max-width: 1200px;
+            /* margin: 0 auto; */
+            background-color: transparent;
+            padding: 0;
+            border-radius: 12px;
+            box-shadow: none;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+        }
+
+        .calculator-form-wrapper {
+            background-color: #ecf0f1;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .calculator-group {
+            margin-bottom: 20px;
+        }
+
+        .calculator-group label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 8px;
+            color: #2c3e50;
+            font-size: 16px;
+        }
+
+        .calculator-group input,
+        .calculator-group select {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid #bdc3c7;
+            border-radius: 6px;
+            font-size: 16px;
+            box-sizing: border-box;
+            transition: border-color 0.3s;
+        }
+
+        .calculator-group input:focus,
+        .calculator-group select:focus {
+            outline: none;
+            border-color: #e74c3c;
+        }
+
+        .input-helper {
+            font-size: 12px;
+            color: #7f8c8d;
+            margin-top: 5px;
+        }
+
+        .calculator-button {
+            width: 100%;
+            padding: 14px;
+            background-color: #e74c3c;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            font-size: 18px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            margin-top: 15px;
+        }
+
+        .calculator-button:hover {
+            background-color: #c0392b;
+        }
+
+        .calculator-results {
+            margin-top: 0;
+            padding: 30px;
+            background-color: #ecf0f1;
+            border-radius: 12px;
+            border-left: 5px solid #e74c3c;
+            display: none;
+            position: sticky;
+            top: 20px;
+            height: fit-content;
+        }
+
+        .calculator-results.show {
+            display: block;
+        }
+
+        .result-item {
+            margin: 12px 0;
+            padding: 12px;
+            background-color: #f0f0f0;
+            border-radius: 6px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .result-label {
+            font-weight: bold;
+            color: #2c3e50;
+        }
+
+        .result-value {
+            color: #e74c3c;
+            font-size: 18px;
+            font-weight: bold;
+        }
+
+        .result-icon {
+            margin-right: 10px;
+            font-size: 20px;
+        }
+
+        .two-columns {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+        }
+
+        @media screen and (max-width: 1280px) {
+            .news-container {
+                display: block;
+                width: 100%;
+                gap: 20px;
+            }
+
+            .news-item {
+                width: 95%;
+                margin: 10px 0;
+                padding: 15px;
+            }
+
+            h2 {
+                font-size: 24px;
+                text-align: center;
+            }
+
+            .two-columns {
+                grid-template-columns: 1fr;
+            }
+
+            .calculator-container {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Arial', sans-serif;
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <h1>☀️ Energia Solar | O Impacto na Construção de uma Economia Sustentável</h1>
+    </header>
+
+    <section>
+        <h2>🌍 O Brasil e a Energia Solar</h2>
+        <div class="news-container">
+            <div class="news-item">
+                <h3><a
+                        href="https://www.metropoles.com/ciencia/energia-renovavel-diferenca-acao-pratica">Energia renovável: 76% dos brasileiros aprovam, mas só 26% praticam</a></h3>
+                <p>Pesquisa mostra que 76% das pessoas valorizam energia limpa, mas só 26% a utilizam.</p>
+            </div>
+
+            <div class="news-item">
+                <h3><a
+                        href="https://www.portalsolar.com.br/noticias/mercado/brasil-acrescenta-5-25-gw-de-energia-solar-no-1o-semestre-de-2025">Brasil acrescenta 5,25 GW de energia solar no 1º semestre de 2025</a></h3>
+                <p>País ganhou mais de 700 mil consumidores beneficiados pela geração distribuída entre janeiro e julho, mostram dados da Aneel.</p>
+            </div>
+
+            <div class="news-item">
+                <h3><a
+                        href="https://www.camara.leg.br/noticias/1171796-comissao-aprova-prioridade-ao-uso-de-energia-solar-em-edificios/">Comissão aprova prioridade ao uso de energia solar em edifícios</a></h3>
+                <p>A Comissão de Finanças e Tributação da Câmara dos Deputados aprovou projeto de lei que estabelece prioridade para o uso de energia solar por edifícios de uso coletivo públicos ou privados, por meio do aproveitamento dos insumos e tecnologias disponíveis. A medida é válida para todas as fontes de energia consideradas limpas e se aplica aos prédios do Sistema Financeiro da Habitação (SFH). </p>
+            </div>
+
+            <div class="news-item">
+                <h3><a
+                        href="https://economia.uol.com.br/empreendedorismo/noticias/redacao/2025/09/20/dicas-pmes-economizar-com-energia-solar.htm">Energia solar pode reduzir em até 20% a conta de luz de PMEs</a></h3>
+                <p>Há dois caminhos principais e ambos podem entregar a redução de 20% mensais, variando conforme perfil tarifário, composição tarifária da distribuidora e modelo de contratação.</p>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <h2>☀️ Benefícios da Energia Solar na Economia Sustentável</h2>
+        <p>A energia solar se destaca como uma das principais fontes de energia renovável, oferecendo benefícios significativos para a construção de uma economia sustentável. O aproveitamento da radiação solar não apenas reduz a dependência de combustíveis fósseis, mas também gera oportunidades econômicas e contribui para a preservação do meio ambiente.</p>
+
+        <p>A transição para a energia solar representa um investimento fundamental na economia do futuro. Com tecnologias cada vez mais acessíveis e eficientes, painéis solares estão se tornando viáveis para residências, indústrias e grandes empreendimentos. O Brasil, com sua localização geográfica privilegiada e abundância de radiação solar, possui condições ideais para liderar essa transformação energética.</p>
+
+        <h3>💰 <strong>Impacto Econômico</strong></h3>
+        <p>O setor de energia solar tem gerado milhares de empregos diretos e indiretos, desde a fabricação de painéis até a instalação e manutenção de sistemas. Além disso, a redução de custos com energia elétrica para consumidores residenciais e empresariais libera recursos que podem ser investidos em outras áreas da economia, estimulando o crescimento econômico local.</p>
+
+        <p>Investimentos em energia solar também atraem e fomentem a inovação tecnológica. Startups e empresas de tecnologia limpa surgem para aproveitar as oportunidades do mercado solar, criando um ecossistema econômico robusto e dinâmico.</p>
+
+        <h3>🌱 <strong>Benefícios Ambientais</strong></h3>
+        <p>A energia solar é uma fonte limpa que não emite gases de efeito estufa durante a operação. Diferentemente das usinas termoelétricas que dependem de combustíveis fósseis, os painéis solares geram eletricidade sem poluir a atmosfera ou prejudicar os recursos hídricos. Essa característica é crucial para o combate às mudanças climáticas.</p>
+
+        <p>A redução das emissões de carbono contribui para melhorar a qualidade do ar nas cidades, diminuindo doenças respiratórias e melhorando a saúde pública. Além disso, a energia solar não gera resíduos tóxicos e possui um ciclo de vida sustentável, especialmente com o avanço de tecnologias de reciclagem de painéis solares.</p>
+
+        <h3>🏠 <strong>Inclusão Social e Acessibilidade</strong></h3>
+        <p>A energia solar oferece uma oportunidade para reduzir a desigualdade energética. Comunidades rurais e periféricas que historicamente enfrentavam dificuldades no acesso à eletricidade podem agora se beneficiar de sistemas solares descentralizados. Programas de financiamento e políticas de incentivo governamental tornam a tecnologia mais acessível para população de baixa renda.</p>
+
+        <p>Famílias que adotam energia solar conseguem reduzir significativamente suas contas de eletricidade, liberando recursos para despesas essenciais como alimentação, saúde e educação. Essa melhoria na qualidade de vida é fundamental para o desenvolvimento social sustentável.</p>
+
+        <h3>⚡ <strong>Segurança Energética</strong></h3>
+        <p>A diversificação da matriz energética através da energia solar fortalece a segurança energética do país. Reduzir a dependência de combustíveis fósseis importados e de usinas hidrelétricas vulneráveis à seca cria um sistema energético mais resiliente e estável. A energia solar, sendo uma fonte local e renovável, oferece maior autonomia energética.</p>
+    </section>
+    <section>
+        <h2>� Tecnologias e Inovações em Energia Solar</h2>
+        <p>A evolução tecnológica na área de energia solar tem sido acelerada nos últimos anos, trazendo soluções cada vez mais eficientes e acessíveis. As inovações vão desde melhorias nos painéis fotovoltaicos até sistemas de armazenamento de energia em baterias avançadas, permitindo que a energia solar seja utilizada até mesmo durante a noite.</p>
+
+        <h3>☀️ <strong>Painéis Fotovoltaicos de Nova Geração</strong></h3>
+        <p>Os painéis solares de última geração apresentam eficiências cada vez maiores, convertendo uma maior quantidade de luz solar em eletricidade. As tecnologias de silício monocristalino e policristalino continuam a se aperfeiçoar, enquanto tecnologias emergentes como perovskita promete eficiências ainda superiores nos próximos anos.</p>
+
+        <p>Além disso, os painéis solares estão se tornando mais duráveis e resistentes, com expectativa de vida útil de 25 a 30 anos ou mais. A reciclagem de painéis também está avançando, permitindo a recuperação de materiais valiosos e a reutilização de componentes, contribuindo para uma economia circular.</p>
+
+        <h3>💡 <strong>Sistemas de Armazenamento de Energia</strong></h3>
+        <p>Um dos maiores desafios da energia solar era a intermitência, ou seja, a impossibilidade de gerar eletricidade durante a noite e em dias nublados. As baterias de íon-lítio e outras tecnologias de armazenamento estão resolvendo esse problema, permitindo que a energia gerada durante o dia seja armazenada para uso posterior.</p>
+
+        <p>Esses sistemas de armazenamento também oferecem benefícios adicionais, como a possibilidade de fornecer energia em casos de falta de eletricidade da rede, aumentando a resiliência do sistema energético. Comunidades em áreas remotas agora têm a possibilidade de ter acesso a energia confiável e sustentável através de sistemas de energia solar híbridos.</p>
+
+        <h3>🏗️ <strong>Integração com a Infraestrutura Urbana</strong></h3>
+        <p>A integração de painéis solares com a infraestrutura urbana está criando novas oportunidades. Telhados solares, fachadas fotovoltaicas e até estradas solar já estão sendo implementadas em várias partes do mundo, transformando as cidades em geradores de energia.</p>
+
+        <p>Esses projetos não apenas geram energia limpa, mas também contribuem para a redução de custos com energia, melhoram a estética urbana e aumentam a sustentabilidade das cidades, alinhando-se aos objetivos de desenvolvimento sustentável propostos pela Organização das Nações Unidas (ONU).</p>
+    </section>
+    <section>
+        <h2>☀️ Cálculadora de Energia Solar</h2>
+        <p>Descubra quanto aproximadamente você pode economizar instalando um sistema de energia solar em sua residência ou negócio. Preencha os campos abaixo com suas informações e veja os resultados personalizados.</p>
+        
+        <div class="calculator-container">
+            <div class="calculator-form-wrapper">
+                <form id="solarCalculator">
+                    <div class="two-columns">
+                        <div class="calculator-group">
+                            <label for="monthlyBill">💡 Conta de Luz Mensal (R$)</label>
+                            <input type="number" id="monthlyBill" placeholder="Ex: 150.00" step="0.01" min="0" required>
+                            <div class="input-helper">Valor médio da sua conta atual</div>
+                        </div>
+
+                        <div class="calculator-group">
+                            <label for="solarIrradiation">☀️ Irradiação Solar (kWh/m²/dia)</label>
+                            <select id="solarIrradiation" required>
+                                <option value="">Selecione sua região</option>
+                                <option value="4.5">Norte (4.5)</option>
+                                <option value="5.0">Nordeste (5.0)</option>
+                                <option value="5.5">Centro-Oeste (5.5)</option>
+                                <option value="4.8">Sudeste (4.8)</option>
+                                <option value="4.2">Sul (4.2)</option>
+                            </select>
+                            <div class="input-helper">Baseado em sua localização geográfica</div>
+                        </div>
+                    </div>
+
+                    <div class="two-columns">
+                        <div class="calculator-group">
+                            <label for="roofArea">🏠 Área de instalação (m²)</label>
+                            <input type="number" id="roofArea" placeholder="Ex: 50" step="0.1" min="0" required>
+                            <div class="input-helper">Área de instalação de painéis solares</div>
+                        </div>
+
+                        <div class="calculator-group">
+                            <label for="panelEfficiency">⚡ Eficiência do Painel (%)</label>
+                            <select id="panelEfficiency" required>
+                                <option value="">Selecione a qualidade</option>
+                                <option value="18">Padrão (18%)</option>
+                                <option value="20">Alta Eficiência (20%)</option>
+                                <option value="22">Premium (22%)</option>
+                            </select>
+                            <div class="input-helper">Tecnologia dos painéis solares</div>
+                        </div>
+                    </div>
+
+                    <div class="calculator-group">
+                        <label for="installationCost">💰 Custo Estimado da Instalação (R$)</label>
+                        <input type="number" id="installationCost" placeholder="Ex: 15000.00" step="0.01" min="0" required>
+                        <div class="input-helper">Inclui equipamentos e mão de obra (média: R$ 1000 m2)</div>
+                    </div>
+
+                    <button type="button" class="calculator-button" onclick="calculateSolar()">
+                        🔢 Calcular Economia
+                    </button>
+                </form>
+            </div>
+
+            <div id="results" class="calculator-results">
+                <h3 style="color: #e74c3c; margin-top: 0;">📊 Seus Resultados</h3>
+
+                <div class="result-item">
+                    <div>
+                        <span class="result-icon">⚡</span>
+                        <span class="result-label">Potência Instalada:</span>
+                    </div>
+                    <span class="result-value"><span id="powerInstalled">0</span> kWp</span>
+                </div>
+
+                <div class="result-item">
+                    <div>
+                        <span class="result-icon">📊</span>
+                        <span class="result-label">Economia do Consumo:</span>
+                    </div>
+                    <span class="result-value"><span id="consumptionCoverage">0</span>%</span>
+                </div>
+
+                <div class="result-item">
+                    <div>
+                        <span class="result-icon">☀️</span>
+                        <span class="result-label">Geração Anual:</span>
+                    </div>
+                    <span class="result-value"><span id="annualGeneration">0</span> kWh</span>
+                </div>
+
+                <div class="result-item">
+                    <div>
+                        <span class="result-icon">💰</span>
+                        <span class="result-label">Economia Anual:</span>
+                    </div>
+                    <span class="result-value">R$ <span id="annualSavings">0</span></span>
+                </div>
+
+                <div class="result-item">
+                    <div>
+                        <span class="result-icon">📅</span>
+                        <span class="result-label">Tempo de Retorno:</span>
+                    </div>
+                    <span class="result-value"><span id="paybackTime">0</span> anos</span>
+                </div>
+
+                <div class="result-item">
+                    <div>
+                        <span class="result-icon">🌍</span>
+                        <span class="result-label">CO₂ Evitado (20 anos):</span>
+                    </div>
+                    <span class="result-value"><span id="co2Avoided">0</span> kg</span>
+                </div>
+
+                <div class="result-item">
+                    <div>
+                        <span class="result-icon">💵</span>
+                        <span class="result-label">Economia Total (20 anos):</span>
+                    </div>
+                    <span class="result-value">R$ <span id="totalSavings20Years">0</span></span>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section>
+        <div class="cta">
+            <p>Participe da transição para a energia solar! <strong>Descubra como você pode adotar essa tecnologia sustentável e contribuir para um futuro mais verde.</strong><br>Sua decisão faz toda a diferença para um planeta mais limpo e uma economia mais sustentável!</p>
+        </div>
+    </section>
+    <footer style="position: unset;">
+        <p>&copy; 2025 Energia Solar Brasil</p>
+    </footer>
+
+    <script>
+        function calculateSolar() {
+            const monthlyBill = parseFloat(document.getElementById('monthlyBill').value);
+            const solarIrradiation = parseFloat(document.getElementById('solarIrradiation').value);
+            const roofArea = parseFloat(document.getElementById('roofArea').value);
+            const panelEfficiency = parseFloat(document.getElementById('panelEfficiency').value);
+            const installationCost = parseFloat(document.getElementById('installationCost').value);
+
+            if (!monthlyBill || !solarIrradiation || !roofArea || !panelEfficiency || !installationCost) {
+                alert('Por favor, preencha todos os campos!');
+                return;
+            }
+
+            // Tarifa média de eletricidade no Brasil (aproximadamente R$ 0.80 por kWh)
+            const electricityRate = 0.80;
+
+            // Consumo mensal em kWh baseado na conta de luz
+            const monthlyConsumption = monthlyBill / electricityRate;
+            const annualConsumption = monthlyConsumption * 12;
+
+            // Cálculo da potência instalada baseado na área disponível
+            // Painel solar padrão: 400W por m² com eficiência do painel
+            // Eficiência do painel varia de 18% a 22% (já considerada na seleção)
+            // Potência por m²: 1000W/m² (irradiância solar padrão) * eficiência do painel / 100
+            const potenciaSpecificaPorMetro = (1000 * (panelEfficiency / 100)) / 1000; // em kW/m²
+            
+            // Potência máxima que pode ser instalada: Área * Potência específica
+            const maxPowerInstallable = roofArea * potenciaSpecificaPorMetro;
+
+            // Consumo necessário em kWp
+            const inverterEfficiency = 0.95;
+            const dailyGenerationPerKWp = solarIrradiation * inverterEfficiency;
+            const powerNeededFor100Percent = annualConsumption / (dailyGenerationPerKWp * 365);
+
+            // Potência instalada será o menor entre o máximo instalável e o necessário
+            const powerInstalled = Math.min(maxPowerInstallable, powerNeededFor100Percent);
+
+            // Cálculo da geração anual em kWh com a potência instalada
+            const annualGeneration = powerInstalled * dailyGenerationPerKWp * 365;
+
+            // Cobertura do consumo (percentual)
+            const consumptionCoverage = Math.min((annualGeneration / annualConsumption) * 100, 100);
+
+            // Economia anual em reais (baseada na geração real)
+            const annualSavings = annualGeneration * electricityRate;
+
+            // Tempo de retorno em anos (payback)
+            const paybackTime = annualSavings > 0 ? (installationCost / annualSavings).toFixed(1) : "∞";
+
+            // CO₂ evitado em 20 anos (1 kWh = 0.12 kg de CO₂)
+            const co2Factor = 0.12;
+            const co2Avoided = (annualGeneration * 20 * co2Factor).toFixed(0);
+
+            // Economia total em 20 anos
+            const totalSavings20Years = (annualSavings * 20).toFixed(2);
+
+            document.getElementById('powerInstalled').textContent = powerInstalled.toFixed(2);
+            document.getElementById('consumptionCoverage').textContent = consumptionCoverage.toFixed(1);
+            document.getElementById('annualGeneration').textContent = annualGeneration.toFixed(0);
+            document.getElementById('annualSavings').textContent = annualSavings.toFixed(2);
+            document.getElementById('paybackTime').textContent = paybackTime;
+            document.getElementById('co2Avoided').textContent = co2Avoided;
+            document.getElementById('totalSavings20Years').textContent = totalSavings20Years;
+
+            // Mostrar div de resultados
+            document.getElementById('results').classList.add('show');
+        }
+
+        // Permitir calcular ao pressionar Enter
+        document.addEventListener('keypress', function(event) {
+            if (event.key === 'Enter') {
+                calculateSolar();
+            }
+        });
+    </script>
+
+</body>
+
+</html>
